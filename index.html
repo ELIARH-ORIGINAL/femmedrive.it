@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FemmeDrive — Associazione Automobilistica Femminile</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --preto:#0A0A0A;
+  --bege:#F5EFE6;
+  --rosa:#E8A0B0;
+  --rosa-dark:#C4728A;
+  --branco:#FFFFFF;
+  --cinza:#888;
+}
+html,body{width:100%;min-height:100%;background:var(--preto);font-family:Arial,sans-serif;font-size:14px;}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;position:relative;overflow-x:hidden;}
+
+/* BORDA ROSA SOMBREADA */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
+  box-shadow:inset 0 0 80px rgba(232,160,176,0.25),inset 0 0 30px rgba(232,160,176,0.15);}
+
+/* FUNDO */
+.bg{position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse at center,#1a0a0f 0%,var(--preto) 70%);}
+
+/* CONTEÚDO */
+.container{position:relative;z-index:2;text-align:center;padding:40px 24px;max-width:900px;width:100%;}
+
+/* ORNAMENTO */
+.ornament{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:32px;animation:fadeIn 1s ease 0.3s both;}
+.orn-line{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--rosa));}
+.orn-line.r{background:linear-gradient(to left,transparent,var(--rosa));}
+.orn-gem{color:var(--rosa);font-size:12px;letter-spacing:8px;}
+
+/* LOGO */
+.logo{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;color:var(--branco);letter-spacing:0.05em;margin-bottom:8px;animation:fadeIn 1s ease 0.5s both;}
+.logo span{color:var(--rosa);}
+
+/* TAGLINE */
+.tagline{font-size:13px;letter-spacing:0.25em;text-transform:uppercase;color:var(--cinza);font-style:italic;margin-bottom:48px;animation:fadeIn 1s ease 0.7s both;}
+
+/* DIVISOR */
+.divider{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:40px;animation:fadeIn 1s ease 0.9s both;}
+.div-line{width:100px;height:1px;background:linear-gradient(to right,transparent,rgba(232,160,176,0.4));}
+.div-line.r{background:linear-gradient(to left,transparent,rgba(232,160,176,0.4));}
+.div-dot{width:5px;height:5px;background:var(--rosa);border-radius:50%;}
+
+/* LABEL */
+.lang-label{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cinza);margin-bottom:28px;display:block;animation:fadeIn 1s ease 1.1s both;}
+
+/* GRID DE IDIOMAS */
+.lang-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:700px;margin:0 auto;animation:fadeIn 1s ease 1.3s both;}
+
+/* BOTÃO DE IDIOMA */
+.lang-btn{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 12px;background:rgba(245,239,230,0.04);border:1px solid rgba(232,160,176,0.15);text-decoration:none;transition:all 0.4s;position:relative;overflow:hidden;border-radius:2px;}
+.lang-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(232,160,176,0.08),transparent);opacity:0;transition:opacity 0.4s;}
+.lang-btn:hover{border-color:var(--rosa);transform:translateY(-3px);}
+.lang-btn:hover::before{opacity:1;}
+.lang-btn:hover .lang-name{color:var(--rosa);}
+
+/* BANDEIRA FOTO */
+.flag-img{width:48px;height:32px;object-fit:cover;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,0.4);transition:transform 0.3s;}
+.lang-btn:hover .flag-img{transform:scale(1.08);}
+
+.lang-name{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--branco);transition:color 0.3s;font-weight:400;}
+.lang-native{font-size:10px;letter-spacing:0.08em;color:var(--cinza);font-style:italic;}
+
+/* FOOTER NOTE */
+.footer-note{margin-top:48px;font-size:11px;letter-spacing:0.15em;color:rgba(136,136,136,0.4);animation:fadeIn 1s ease 1.5s both;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:600px){
+  .lang-grid{grid-template-columns:repeat(3,1fr);}
+  .orn-line{width:40px;}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="container">
+
+  <div class="ornament">
+    <div class="orn-line"></div>
+    <span class="orn-gem">◆ ◆ ◆</span>
+    <div class="orn-line r"></div>
+  </div>
+
+  <div class="logo">Femme<span>Drive</span></div>
+  <div class="tagline">Associazione Automobilistica Femminile — Est. Italia</div>
+
+  <div class="divider">
+    <div class="div-line"></div>
+    <div class="div-dot"></div>
+    <div class="div-line r"></div>
+  </div>
+
+  <span class="lang-label">Scegli la tua lingua — Choose your language</span>
+
+  <div class="lang-grid">
+
+    <a href="it/index.html" class="lang-btn">
+      <img class="flag-img" src="https://flagcdn.com/w80/it.png" alt="Italia" />
+      <span class="lang-name">Italiano</span>
+      <span class="lang-native">Italian</span>
+    </a>
+
+    <a href="en/index.html" class="lang-btn">
+      <img class="flag-img" src="https://flagcdn.com/w80/gb.png" alt="English" />
+      <span class="lang-name">English</span>
+      <span class="lang-native">Inglese</span>
+    </a>
+
+    <a href="es/index.html" class="lang-btn">
+      <img class="flag-img" src="https://flagcdn.com/w80/es.png" alt="España" />
+      <span class="lang-name">Español</span>
+      <span class="lang-native">Spagnolo</span>
+    </a>
+
+    <a href="de/index.html" class="lang-btn">
+      <img class="flag-img" src="https://flagcdn.com/w80/de.png" alt="Deutschland" />
+      <span class="lang-name">Deutsch</span>
+      <span class="lang-native">Tedesco</span>
+    </a>
+
+    <a href="fr/index.html" class="lang-btn">
+      <img class="flag-img" src="https://flagcdn.com/w80/fr.png" alt="France" />
+      <span class="lang-name">Français</span>
+      <span class="lang-native">Francese</span>
+    </a>
+
+  </div>
+
+  <div class="footer-note">femmedrive.it — Associazione esclusiva per donne automobiliste</div>
+
+</div>
+</body>
+</html>
